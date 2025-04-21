@@ -57,7 +57,7 @@ const Categories = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
-            <Link key={category.id} href={`/categories/${category.slug}`}>
+            <Link key={category.id} href={`/products/${category.slug}`}>
               <div className="group relative overflow-hidden rounded-sm h-64 flex items-center justify-center">
                 {/* Category image background */}
                 <div
