@@ -31,9 +31,21 @@ export default function ContactForm() {
     setSubmitStatus(null);
     
     try {
-      // This is a placeholder for your actual form submission logic
-      // You would typically call an API endpoint here
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      // Send form data to our API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      // Get response data
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
       
       // Reset form after successful submission
       setFormData({
@@ -52,7 +64,7 @@ export default function ContactForm() {
       console.error("Form submission error:", error);
       setSubmitStatus({
         success: false,
-        message: "There was an error sending your message. Please try again later."
+        message: error instanceof Error ? error.message : "There was an error sending your message. Please try again later."
       });
     } finally {
       setIsSubmitting(false);

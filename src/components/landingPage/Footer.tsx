@@ -66,27 +66,27 @@ const Footer = () => {
             <h3 className="text-lg font-medium font-heading mb-4 text-black">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/shop" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/products" className="text-gray-700 hover:text-primary transition-colors">
                   Shop All
                 </Link>
               </li>
               <li>
-                <Link href="/categories/rings" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/products/rings" className="text-gray-700 hover:text-primary transition-colors">
                   Rings
                 </Link>
               </li>
               <li>
-                <Link href="/categories/necklaces" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/products/necklaces" className="text-gray-700 hover:text-primary transition-colors">
                   Necklaces
                 </Link>
               </li>
               <li>
-                <Link href="/categories/earrings" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/products/earrings" className="text-gray-700 hover:text-primary transition-colors">
                   Earrings
                 </Link>
               </li>
               <li>
-                <Link href="/categories/bracelets" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/products/bracelets" className="text-gray-700 hover:text-primary transition-colors">
                   Bracelets
                 </Link>
               </li>

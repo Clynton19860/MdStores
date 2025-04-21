@@ -1,34 +1,26 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
-import "./globals.css";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Providers from './providers';
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "MDStores | Luxury Jewelry",
-  description: "Sparkle with confidence - Premium luxury jewelry by MDStores",
+  title: 'Jewell - Fine Jewelry Store',
+  description: 'Discover exquisite jewelry pieces at Jewell. From elegant necklaces to stunning rings, find the perfect jewelry for every occasion.',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${playfair.variable} ${montserrat.variable} antialiased`}
-      >
-        {children}
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

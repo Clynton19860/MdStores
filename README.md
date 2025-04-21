@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jewell - Fine Jewelry Store
 
-## Getting Started
+A sophisticated online store for premium jewelry pieces, built with Next.js, React, and Tailwind CSS.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern UI**: Clean, responsive design with attention to detail
+- **Product Catalog**: Browse jewelry by categories (rings, necklaces, earrings, bracelets)
+- **Product Details**: View comprehensive product information, specifications, and images
+- **Shopping Cart**: Add products to cart, adjust quantities, and proceed to checkout
+- **Contact Form**: Get in touch with the store for inquiries or custom orders (with email functionality)
+- **About Page**: Learn about the store's history, values, and team
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
+- **State Management**: React Context API
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
+- **Icons**: Lucide React
+- **Image Optimization**: Next.js Image component for optimized loading
+- **Email Integration**: Nodemailer for contact form submission
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running the Project
 
-## Learn More
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Set up environment variables:
+   - Create a `.env.local` file in the root directory
+   - Copy the contents from `.env.example` and update with your actual values
+   - For email functionality, update the email configuration variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is ready for deployment to platforms such as Vercel or Netlify.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Email Integration (Nodemailer)
+
+The contact form is fully integrated with Nodemailer for email functionality. When a user submits the contact form:
+
+1. The form data is sent to the API route at `/api/contact`
+2. The server validates the data and uses Nodemailer to send an email
+3. The user receives confirmation of successful submission
+
+To configure this feature for production:
+
+1. Update the email configuration in your `.env` file with your SMTP server details:
+   ```
+   EMAIL_HOST=your-smtp-server.com
+   EMAIL_PORT=587
+   EMAIL_USER=your-email@example.com
+   EMAIL_PASSWORD=your-email-password
+   EMAIL_FROM=noreply@yourstore.com
+   EMAIL_TO=admin@yourstore.com
+   ```
+
+2. For secure email transmission, use an app-specific password or OAuth2 if your email provider supports it.
+
+3. Test the email functionality in a staging environment before deploying to production.
+
+## Payment Integration
+
+The checkout process will be integrated with a payment processor in the future.
+
+## License
+
+[MIT License](LICENSE)

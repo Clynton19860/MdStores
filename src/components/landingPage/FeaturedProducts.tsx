@@ -1,51 +1,11 @@
 import Link from "next/link";
 import ImageWithFallback from "./ImageWithFallback";
-
-// Product type
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  isNew?: boolean;
-}
-
-// Sample featured products
-const featuredProducts: Product[] = [
-  {
-    id: 1,
-    name: "Diamond Eternity Ring",
-    price: 1299,
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&h=500&fit=crop",
-    category: "Rings",
-    isNew: true,
-  },
-  {
-    id: 2,
-    name: "Pearl Pendant Necklace",
-    price: 899,
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=500&fit=crop",
-    category: "Necklaces",
-  },
-  {
-    id: 3,
-    name: "Sapphire Drop Earrings",
-    price: 749,
-    image: "https://images.unsplash.com/photo-1635767798638-3665a353756c?w=500&h=500&fit=crop",
-    category: "Earrings",
-    isNew: true,
-  },
-  {
-    id: 4,
-    name: "Gold Tennis Bracelet",
-    price: 1599,
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&h=500&fit=crop",
-    category: "Bracelets",
-  },
-];
+import { getFeaturedProducts } from "@/data/products";
 
 const FeaturedProducts = () => {
+  // Get featured products from our data file
+  const featuredProducts = getFeaturedProducts(4);
+  
   return (
     <section className="py-16 bg-gray-50" id="featured">
       <div className="container mx-auto px-4">
@@ -66,7 +26,7 @@ const FeaturedProducts = () => {
                 <div className="aspect-square relative">
                   <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
                   <ImageWithFallback
-                    src={product.image}
+                    src={product.imageUrl}
                     alt={product.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
@@ -77,11 +37,16 @@ const FeaturedProducts = () => {
                       NEW
                     </div>
                   )}
+                  {product.isSale && !product.isNew && (
+                    <div className="absolute top-4 right-4 z-20 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-sm">
+                      SALE
+                    </div>
+                  )}
                   <div className="absolute inset-0 z-20 animate-diamond-sparkle pointer-events-none"></div>
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center justify-center">
                   <Link
-                    href={`/products/${product.id}`}
+                    href={`/products/${product.category}/${product.slug}`}
                     className="bg-white text-gray-900 py-2 px-4 rounded-sm transform translate-y-4 group-hover:translate-y-0 transition-transform"
                   >
                     View Details
@@ -90,8 +55,17 @@ const FeaturedProducts = () => {
               </div>
               <div className="text-center">
                 <h3 className="text-lg font-medium text-gray-900 mb-1">{product.name}</h3>
-                <p className="text-sm text-gray-600 mb-2">{product.category}</p>
-                <p className="font-heading text-xl text-primary">${product.price}</p>
+                <p className="text-sm text-gray-600 mb-2 capitalize">{product.category}</p>
+                <div className="font-heading">
+                  {product.originalPrice ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="text-xl text-primary">${product.price}</span>
+                      <span className="text-sm text-gray-500 line-through">${product.originalPrice}</span>
+                    </div>
+                  ) : (
+                    <p className="text-xl text-primary">${product.price}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -99,7 +73,7 @@ const FeaturedProducts = () => {
 
         <div className="text-center mt-12">
           <Link
-            href="/shop"
+            href="/products"
             className="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 transition-colors rounded-sm"
           >
             View All Collections
