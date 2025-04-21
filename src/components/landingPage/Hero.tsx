@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
 
 // Sparkle component
@@ -38,7 +37,7 @@ const Hero = () => {
       const height = sloganRef.current.offsetHeight;
       
       // Create 8 sparkles with random positions
-      const newSparkles = Array.from({ length: 8 }, (_, i) => ({
+      const newSparkles = Array.from({ length: 8 }, () => ({
         top: `${Math.random() * height}px`,
         left: `${Math.random() * width}px`,
         opacity: Math.random() * 0.7 + 0.3,

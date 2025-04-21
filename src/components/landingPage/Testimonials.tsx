@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     name: "James Wilson",
     title: "Executive",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    quote: "I purchased a necklace for my wife's anniversary and she absolutely loves it. The attention to detail and quality is truly outstanding.",
+    quote: "I purchased a necklace for my wife&apos;s anniversary and she absolutely loves it. The attention to detail and quality is truly outstanding.",
     rating: 5,
   },
   {
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: "Emma Thompson",
     title: "Interior Designer",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    quote: "DM Stores offers impeccable service and the most exquisite jewelry I've ever owned. Their pieces are timeless investments that I cherish.",
+    quote: "DM Stores offers impeccable service and the most exquisite jewelry I&apos;ve ever owned. Their pieces are timeless investments that I cherish.",
     rating: 5,
   },
 ];
@@ -109,7 +109,7 @@ const Testimonials = () => {
                         fill
                       />
                     </div>
-                    <blockquote className="text-gray-800 italic mb-4">"{testimonial.quote}"</blockquote>
+                    <blockquote className="text-gray-800 italic mb-4">&quot;{testimonial.quote}&quot;</blockquote>
                     <div className="flex justify-center mb-2">
                       {[...Array(5)].map((_, i) => (
                         <StarIcon

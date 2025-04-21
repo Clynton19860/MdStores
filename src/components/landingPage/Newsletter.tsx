@@ -49,7 +49,7 @@ const Newsletter = () => {
           {submitted ? (
             <div className="bg-green-50 p-6 rounded-sm border border-green-200">
               <p className="text-green-800 font-medium">
-                Thank you for subscribing! We've sent a confirmation to your email.
+                Thank you for subscribing! We&apos;ve sent a confirmation to your email.
               </p>
             </div>
           ) : (
