@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 // Category type
 interface Category {
   id: number;
