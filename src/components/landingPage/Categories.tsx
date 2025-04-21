@@ -57,7 +57,11 @@ const Categories = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
-            <Link key={category.id} href={`/products/${category.slug}`}>
+            <a 
+              key={category.id} 
+              href={`/products/${category.slug}`}
+              className="block cursor-pointer"
+            >
               <div className="group relative overflow-hidden rounded-sm h-64 flex items-center justify-center">
                 {/* Category image background */}
                 <div
@@ -77,7 +81,7 @@ const Categories = () => {
                   <div className="mt-4 w-12 h-0.5 bg-primary mx-auto transform scale-0 group-hover:scale-100 transition-transform"></div>
                 </div>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
