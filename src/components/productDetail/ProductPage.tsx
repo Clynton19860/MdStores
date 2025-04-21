@@ -88,7 +88,7 @@ interface ReviewData {
 export default function ProductPage({ product }: ProductPageProps) {
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const { addItem } = useContext(CartContext);
-  const { addItem: addToWishlist, isInWishlist } = useContext(WishlistContext);
+  const { addItem: addToWishlist } = useContext(WishlistContext);
 
   // Handle option changes
   const handleOptionChange = (optionId: string, valueId: string) => {
