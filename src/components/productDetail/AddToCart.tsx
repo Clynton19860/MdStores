@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CartIcon, HeartIcon, ShareIcon, CheckIcon, ShippingIcon, ReturnIcon, SecurityIcon } from "./Icons";
+import { WishlistContext } from "@/app/contexts/WishlistContext";
 
 interface AddToCartProps {
   productId: string;
@@ -21,6 +22,8 @@ export default function AddToCart({
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
+  const { isInWishlist } = useContext(WishlistContext);
+  const itemInWishlist = isInWishlist(productId);
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
@@ -119,10 +122,12 @@ export default function AddToCart({
 
         <button
           onClick={() => onAddToWishlist?.(productId)}
-          className="flex-shrink-0 border border-gray-300 rounded-sm px-4 py-3 flex items-center justify-center hover:bg-gray-50"
+          className={`flex-shrink-0 border border-gray-300 rounded-sm px-4 py-3 flex items-center justify-center ${
+            itemInWishlist ? 'bg-pink-50 text-pink-700' : 'hover:bg-gray-50'
+          }`}
           aria-label="Add to wishlist"
         >
-          <HeartIcon className="w-5 h-5 text-gray-700" />
+          <HeartIcon className={`w-5 h-5 ${itemInWishlist ? 'text-pink-700' : 'text-gray-700'}`} filled={itemInWishlist} />
         </button>
 
         <button

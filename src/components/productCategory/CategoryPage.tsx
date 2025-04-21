@@ -11,6 +11,7 @@ import RelatedProducts from "./RelatedProducts";
 import { getProductsByCategory, getRelatedProducts } from "@/data/products";
 import { ProductBase } from "@/data/products";
 import { CartContext } from "@/app/contexts/CartContext";
+import { WishlistContext, WishlistItem } from "@/app/contexts/WishlistContext";
 
 // Define proper type for filter configurations
 interface FilterOption {
@@ -209,6 +210,7 @@ export default function CategoryPage({
   const filterCategories = filterConfigurations[categorySlug] || filterConfigurations.default;
   
   const { addItem } = useContext(CartContext);
+  const { addItem: addToWishlist } = useContext(WishlistContext);
   
   // Apply filters and sorting
   useEffect(() => {
@@ -341,7 +343,22 @@ export default function CategoryPage({
   // Handle adding product to wishlist
   const handleAddToWishlist = (productId: string) => {
     console.log(`Adding product ${productId} to wishlist`);
-    // Implement actual add to wishlist logic here
+    
+    // Find the product in our filtered products
+    const product = products.find(p => p.id === productId);
+    
+    if (product) {
+      const wishlistItem: WishlistItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.imageUrl,
+        category: categorySlug,
+        slug: product.slug
+      };
+      
+      addToWishlist(wishlistItem);
+    }
   };
   
   // Handle sort change

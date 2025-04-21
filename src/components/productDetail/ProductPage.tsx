@@ -10,6 +10,7 @@ import ProductTabs, { DescriptionContent, SpecificationsContent, ShippingContent
 import CustomerReviews from "./CustomerReviews";
 import ProductCarousel from "./ProductCarousel";
 import { CartContext } from "@/app/contexts/CartContext";
+import { WishlistContext, WishlistItem } from "@/app/contexts/WishlistContext";
 import Link from "next/link";
 
 interface ProductDetails {
@@ -87,6 +88,7 @@ interface ReviewData {
 export default function ProductPage({ product }: ProductPageProps) {
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const { addItem } = useContext(CartContext);
+  const { addItem: addToWishlist, isInWishlist } = useContext(WishlistContext);
 
   // Handle option changes
   const handleOptionChange = (optionId: string, valueId: string) => {
@@ -119,7 +121,19 @@ export default function ProductPage({ product }: ProductPageProps) {
   // Handle add to wishlist
   const handleAddToWishlist = (productId: string) => {
     console.log('Adding to wishlist:', productId);
-    // Implement actual wishlist logic here
+    
+    // Create wishlist item from product data
+    const wishlistItem: WishlistItem = {
+      id: productId,
+      name: product.name,
+      price: product.price,
+      image: product.images[0]?.src || '',
+      category: product.category.id,
+      slug: product.slug
+    };
+    
+    // Add to wishlist
+    addToWishlist(wishlistItem);
   };
 
   // Handle product share
