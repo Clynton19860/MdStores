@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
     name: "Sophia Reynolds",
     title: "Fashion Blogger",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    quote: "The craftsmanship of my diamond ring is exceptional. I receive compliments every time I wear it. DM Stores has exceeded my expectations in every way.",
+    quote: "The craftsmanship of my diamond ring is exceptional. I receive compliments every time I wear it. MDStores has exceeded my expectations in every way.",
     rating: 5,
   },
   {
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: "Emma Thompson",
     title: "Interior Designer",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    quote: "DM Stores offers impeccable service and the most exquisite jewelry I&apos;ve ever owned. Their pieces are timeless investments that I cherish.",
+    quote: "MDStores offers impeccable service and the most exquisite jewelry I&apos;ve ever owned. Their pieces are timeless investments that I cherish.",
     rating: 5,
   },
 ];

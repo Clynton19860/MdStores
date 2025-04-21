@@ -56,14 +56,14 @@ const Hero = () => {
           <div className="mb-6">
             <div className="inline-block relative">
               <span className="inline-block text-sm md:text-base uppercase tracking-widest font-medium text-black">
-                Our Story
+                Get in Touch
               </span>
               <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFC0CB]"></div>
             </div>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-black">
-            About <span className="text-[#FFC0CB]">Us</span>
+            Contact <span className="text-[#FFC0CB]">Us</span>
           </h1>
           
           <div ref={sloganRef} className={`relative transition-opacity duration-1000 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'} mb-6 max-w-xl mx-auto`}>
@@ -71,12 +71,13 @@ const Hero = () => {
               <Sparkle key={index} style={style} />
             ))}
             <h2 className="text-2xl md:text-3xl font-heading font-semibold italic bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-200 text-transparent bg-clip-text">
-              Crafting Moments That Last Forever
+              We&apos;d love to hear from you
             </h2>
           </div>
           
           <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto text-gray-700">
-          Started as a passionate family business in 2000 from a small flea market stand growing into an online business today. DM Stores is your one stop shop for all things glamourous and elegant to treasured personalized  pieces.
+            Whether you have questions about our products, custom designs, or need assistance with an order,
+            our team is here to help you find the perfect piece for any occasion.
           </p>
           
           <div className="flex justify-center">

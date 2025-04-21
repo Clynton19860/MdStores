@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="mb-4">
               <Link href="/" className="flex items-center">
                 <span className="text-2xl font-semibold font-heading text-primary">
-                  DM
+                  MD
                 </span>
                 <span className="text-2xl font-light font-heading text-black">
                   Stores
@@ -151,7 +151,7 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span className="text-gray-700">
-                  info@dmstores.com
+                  info@mdstores.com
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -173,7 +173,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-600 text-sm">
-              © {new Date().getFullYear()} DM Stores. All rights reserved.
+              © {new Date().getFullYear()} MDStores. All rights reserved.
             </p>
             
             {/* Payment Icons */}

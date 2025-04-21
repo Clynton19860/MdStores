@@ -14,8 +14,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "DM Stores | Luxury Jewelry",
-  description: "Sparkle with confidence - Premium luxury jewelry by DM Stores",
+  title: "MDStores | Luxury Jewelry",
+  description: "Sparkle with confidence - Premium luxury jewelry by MDStores",
 };
 
 export default function RootLayout({

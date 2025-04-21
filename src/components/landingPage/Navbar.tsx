@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <span className="text-2xl font-semibold font-heading text-accent">
-            DM
+            MD
           </span>
           <span className="text-2xl font-light font-heading text-black">
             Stores
