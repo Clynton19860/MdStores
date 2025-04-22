@@ -218,19 +218,33 @@ export default function CategoryPage({
     
     // Apply category filters
     if (Object.keys(activeFilters).length > 0) {
-      // Implement a simple OR within category, AND between categories
+      // Filter products based on matching any selected option in each category
       filteredProducts = filteredProducts.filter(product => {
-        for (const filterOptions of Object.values(activeFilters)) {
-          if (filterOptions.length === 0) continue;
+        // For each filter category (Material, Style, etc.)
+        for (const [category, selectedOptions] of Object.entries(activeFilters)) {
+          if (selectedOptions.length === 0) continue;
           
-          // Check if the product matches any option in this filter category
-          const matchesAnyOption = filterOptions.some(option => 
-            product.name.toLowerCase().includes(option.toLowerCase()) || 
-            (product.description && product.description.toLowerCase().includes(option.toLowerCase()))
-          );
+          // Assume product matches if no options are selected in this category
+          let matchesCategory = false;
           
-          // If it doesn't match any option in this category, filter it out
-          if (!matchesAnyOption) return false;
+          // Check if the product matches any option in this category
+          for (const option of selectedOptions) {
+            // Convert both to lowercase for case-insensitive comparison
+            const optionLower = option.toLowerCase();
+            
+            // Check if product has this attribute in name or description
+            if (product.name.toLowerCase().includes(optionLower) || 
+                (product.description && product.description.toLowerCase().includes(optionLower)) ||
+                // Check for tags or attributes if they exist
+                (product.tags && product.tags.some(tag => tag.toLowerCase().includes(optionLower))) ||
+                (product.attributes && product.attributes[category.toLowerCase()] === optionLower)) {
+              matchesCategory = true;
+              break; // Found a match for this category, no need to check other options
+            }
+          }
+          
+          // If product doesn't match any option in this category, filter it out
+          if (!matchesCategory) return false;
         }
         
         // If it passed all filter categories, keep it
